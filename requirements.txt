@@ -6,3 +6,5 @@ Flask-Migrate
 Flask-SocketIO
 Flask-SQLAlchemy
 Flask-WTF
+gunicorn
+pandas
