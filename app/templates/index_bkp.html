@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Upload Jupyter Notebook or Python Script</title>
+    <title>Upload Jupyter Notebook or Streamlit App</title>
 </head>
 <body>
 
-<h1>Upload a Jupyter Notebook or Python Script</h1>
+<h1>Upload a Jupyter Notebook or Streamlit App</h1>
 
 <form action="/" method="post" enctype="multipart/form-data">
     <input type="file" name="file" accept=".ipynb,.py">
     <input type="submit" value="Upload">
 </form>
 
-{% if code_cells %}
-    <h2>Code:</h2>
+{% if streamlit_url %}
+    <h2>Streamlit App:</h2>
+    <iframe src="{{ streamlit_url }}" width="800" height="600"></iframe>
+{% elif code_cells %}
+    <h2>Code Cells:</h2>
     <ul>
     {% for cell in code_cells %}
         <li><pre>{{ cell }}</pre></li>

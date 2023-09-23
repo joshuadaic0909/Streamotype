@@ -8,3 +8,4 @@ Flask-SQLAlchemy
 Flask-WTF
 gunicorn
 pandas
+Werkzeug

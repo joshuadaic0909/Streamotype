@@ -42,3 +42,32 @@ def index():
             code_cells.append(content)
 
     return render_template('index.html', code_cells=code_cells)
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Jupyter Notebook or Python Script</title>
+</head>
+<body>
+
+<h1>Upload a Jupyter Notebook or Python Script</h1>
+
+<form action="/" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".ipynb,.py">
+    <input type="submit" value="Upload">
+</form>
+
+{% if code_cells %}
+    <h2>Code:</h2>
+    <ul>
+    {% for cell in code_cells %}
+        <li><pre>{{ cell }}</pre></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>
