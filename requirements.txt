@@ -9,3 +9,4 @@ Flask-WTF
 gunicorn
 pandas
 Werkzeug
+streamlit
