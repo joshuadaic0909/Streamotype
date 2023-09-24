@@ -71,3 +71,24 @@ def index():
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Jupyter Notebook or Python Script</title>
+</head>
+<body>
+
+<h1>Upload a Jupyter Notebook or Python Script</h1>
+
+<form action="/" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".ipynb,.py">
+    <input type="submit" value="Upload">
+</form>
+
+<iframe src="http://localhost:8501" width="100%" height="800px"></iframe>
+
+
+</body>
+</html>
