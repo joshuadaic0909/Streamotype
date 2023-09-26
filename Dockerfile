@@ -1,32 +1,23 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8-slim
 
+# Install Nginx
+RUN apt-get update && apt-get install -y nginx
+
 # Set the working directory in docker
 WORKDIR /usr/src/app
-
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Install system dependencies
-RUN apt-get update \
- && apt-get install -y --no-install-recommends netcat \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-
-# Install Python dependencies
-COPY requirements.txt requirements.txt
-RUN pip install --upgrade pip \
- && pip install -r requirements.txt
 
 # Copy the content of the local src directory to the working directory
 COPY . .
 
-# Expose ports for Streamlit apps
-EXPOSE 8502-8600
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port for Flask app
-EXPOSE 10000
+# Make port 80 available to the world outside this container
+EXPOSE 80
 
-# Specify the command to run on container start
-CMD ["gunicorn", "run:app", "-b", "0.0.0.0:10000"]
+# Copy the Nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Run app.py when the container launches
+CMD ["sh", "-c", "service nginx start && gunicorn --bind 0.0.0.0:8000 run:app"]
