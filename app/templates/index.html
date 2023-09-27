@@ -35,7 +35,7 @@
         <!-- Right section (2/3 of the content area) -->
         <div class="col-lg-8">
             {% if show_streamlit %}
-            <iframe src="{{streamlit_url}}" width="100%" height="800px"></iframe>
+            <iframe src="http://localhost:{{ port }}" width="100%" height="800px"></iframe>
             <form action="/{{ session_id }}/stop_streamlit" method="post" class="mb-3">
                 <input type="submit" value="Stop Streamlit App" class="btn btn-primary btn-block">
             </form>

@@ -92,10 +92,7 @@ def index():
                 print(port)
                 print(session_id)
 
-    streamlit_url = f"https://streamotype.com/streamlit/{session_id}"
-    return render_template('index.html', streamlit_url=streamlit_url, session_id=session_id, port=port)
-
-    # return render_template('index.html', show_streamlit=show_streamlit, session_id=session_id, port=port)
+    return render_template('index.html', show_streamlit=show_streamlit, session_id=session_id, port=port)
 
 
 @bp.route('/<session_id>/stop_streamlit', methods=['POST'])
