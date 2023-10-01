@@ -1,0 +1,19 @@
+        <!-- Code Summary Section -->
+        <div class="col-lg-12 mt-3">
+            {% if ui_code_summary_bin %}
+            <div class="alert alert-info header-shadow" role="alert">
+                <h4 class="alert-heading">Project Summary:</h4>
+                <p class="mb-0">{{ ui_code_summary }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Optimized Code Section -->
+        <div class="col-lg-12 mt-3">
+            {% if uo_code_summary_bin %}
+            <div class="alert alert-success header-shadow" role="alert">
+                <h4 class="alert-heading">Web App Summary:</h4>
+                <p class="mb-0">{{ uo_code_summary }}</p>
+            </div>
+            {% endif %}
+        </div>

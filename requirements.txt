@@ -83,3 +83,4 @@ Werkzeug==2.3.7
 wsproto==1.2.0
 WTForms==3.0.1
 zipp==3.17.0
+openai
